@@ -5,6 +5,8 @@ public class EmployeeWageCalculator {
 	public static final int IS_PART_TIME=2;
 	public static final int EMP_RATE_PER_HOUR=20;
 	public static final int NUM_OF_WORKING_DAYS=20;
+	public static final int MAX_WORK_HOURS=100;
+
 	
 	public static void main(String args[]) {
 	
@@ -12,10 +14,12 @@ public class EmployeeWageCalculator {
 	
 	
 	//variables
-	int empHours=0,empWage=0,totalEmpWage=0;
+	int empHours=0,totalEmpWage=0,totalEmpHours=0,totalWorkDays=0;
 	
 	//Computations
-	for(int i=0;i<NUM_OF_WORKING_DAYS;i++) {
+	while(totalEmpHours<=MAX_WORK_HOURS && totalWorkDays<NUM_OF_WORKING_DAYS){
+		
+		totalWorkDays++;
 		
 		int empCheck=(int)Math.floor(Math.random()*10)%3;
 		
@@ -32,14 +36,14 @@ public class EmployeeWageCalculator {
 		
 			
 		}
-		empWage=empHours*EMP_RATE_PER_HOUR;
-		System.out.println("Employee wage:"+empWage);
-		totalEmpWage+=empWage;
+		totalEmpHours+=empHours;
+		System.out.println("Day#:"+totalWorkDays+" Emp hours:"+empHours);
+		
 		
 	}
 	
 	
-	
+	 totalEmpWage=totalEmpHours*EMP_RATE_PER_HOUR;
 	System.out.println("Total Employee wage:"+totalEmpWage);
 	
 	}
