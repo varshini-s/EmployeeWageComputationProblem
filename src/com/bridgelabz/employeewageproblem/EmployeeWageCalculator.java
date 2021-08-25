@@ -2,9 +2,10 @@ package com.bridgelabz.employeewageproblem;
 
 public class EmployeeWageCalculator {
 	
+	//class variables
 	int empHours,totalEmpWage,totalEmpHours,totalWorkDays;
 
-	
+	//Global constants
 	public static final int IS_FULL_TIME=1;
 	public static final int IS_PART_TIME=2;
 	public static final int EMP_RATE_PER_HOUR=20;
@@ -71,7 +72,6 @@ public class EmployeeWageCalculator {
 	
 	EmployeeWageCalculator Employee1 = new EmployeeWageCalculator();
 	
-	//variables
 	calculateEachDayWage(Employee1);
 	calculateEachMonthWage(Employee1);
 	
