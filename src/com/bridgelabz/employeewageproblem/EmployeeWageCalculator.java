@@ -1,23 +1,36 @@
 package com.bridgelabz.employeewageproblem;
 
-public class EmployeeWageCalculator {
+public class EmployeeWageCalculator 
+{
 	
 	
 	//Global constants
 	public static final int IS_FULL_TIME=1;
 	public static final int IS_PART_TIME=2;
-	public static final int EMP_RATE_PER_HOUR=20;
-	public static final int NUM_OF_WORKING_DAYS=20;
-	public static final int MAX_WORK_HOURS=100;
+	
+	private final String company;
+	public  final int employeeRatePerHour;
+	public  final int numberOfWorkingDays;
+	public  final int maximumWorkHours;
+	
+	public EmployeeWageCalculator(String company,int employeeRatePerHour,int numberOfWorkingDays,int maximumWorkHours) 
+	
+	{
+		this.company = company;
+		this.employeeRatePerHour = employeeRatePerHour;
+		this.numberOfWorkingDays = numberOfWorkingDays;
+		this.maximumWorkHours = maximumWorkHours;
+		
+	}
 
-	public static void computeEmployeeWage()
+	public  void computeEmployeeWage()
 	{
 
 			//variables
 			int empHours=0,totalEmpWage=0,totalEmpHours=0,totalWorkDays=0;
 			
 			//Computations
-			while(totalEmpHours<=MAX_WORK_HOURS && totalWorkDays<NUM_OF_WORKING_DAYS){
+			while(totalEmpHours<=maximumWorkHours && totalWorkDays<numberOfWorkingDays){
 				
 				totalWorkDays++;
 				
@@ -43,7 +56,7 @@ public class EmployeeWageCalculator {
 			}
 			
 			
-			 totalEmpWage=totalEmpHours*EMP_RATE_PER_HOUR;
+			 totalEmpWage=totalEmpHours*employeeRatePerHour;
 			System.out.println("Total Employee wage:"+totalEmpWage);
 			
 			
@@ -54,8 +67,10 @@ public class EmployeeWageCalculator {
 	public static void main(String args[]) 
 	{
 	
-	System.out.println("*-------------Welcome to Employee Wage Computation Program-------------*");
-	computeEmployeeWage();
+		System.out.println("*-------------Welcome to Employee Wage Computation Program-------------*");
+		EmployeeWageCalculator employee = new EmployeeWageCalculator("Dmart",20,20,100);
+		employee.computeEmployeeWage();
+		
 	
 	}
 	
