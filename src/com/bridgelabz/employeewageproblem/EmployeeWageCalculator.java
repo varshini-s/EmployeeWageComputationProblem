@@ -8,12 +8,27 @@ public class EmployeeWageCalculator
 	public static final int IS_FULL_TIME=1;
 	public static final int IS_PART_TIME=2;
 	
+	private final String company;
+	public  final int employeeRatePerHour;
+	public  final int numberOfWorkingDays;
+	public  final int maximumWorkHours;
+	private int totalEmpWage=0;
+	
+	public EmployeeWageCalculator(String company,int employeeRatePerHour,int numberOfWorkingDays,int maximumWorkHours) 
+	
+	{
+		this.company = company;
+		this.employeeRatePerHour = employeeRatePerHour;
+		this.numberOfWorkingDays = numberOfWorkingDays;
+		this.maximumWorkHours = maximumWorkHours;
+		
+	}
 
-	public  static void computeEmployeeWage(String company,int employeeRatePerHour,int numberOfWorkingDays,int maximumWorkHours)
+	public  void computeEmployeeWage()
 	{
 
 			//variables
-			int empHours=0,totalEmpWage=0,totalEmpHours=0,totalWorkDays=0;
+			int empHours=0,totalEmpHours=0,totalWorkDays=0;
 			
 			//Computations
 			while(totalEmpHours<=maximumWorkHours && totalWorkDays<numberOfWorkingDays){
@@ -43,9 +58,13 @@ public class EmployeeWageCalculator
 			
 			
 			 totalEmpWage=totalEmpHours*employeeRatePerHour;
-			System.out.println("Total Employee wage:"+totalEmpWage);
 			
 			
+	}
+	
+	public String toString()
+	{
+		return "total emp wage for company "+company+"is :"+totalEmpWage;
 	}
 		
 	
@@ -55,8 +74,12 @@ public class EmployeeWageCalculator
 	
 		System.out.println("*-------------Welcome to Employee Wage Computation Program-------------*");
 		
-		computeEmployeeWage("Dmart",20,20,100);
-		computeEmployeeWage("REliance",10,20,80);
+		EmployeeWageCalculator dmart = new EmployeeWageCalculator("Dmart",20,20,100);
+		dmart.computeEmployeeWage();
+		System.out.println(dmart);
+		EmployeeWageCalculator reliance = new EmployeeWageCalculator("Reliance",20,20,100);
+		reliance.computeEmployeeWage();
+		System.out.println(reliance);
 
 		
 	
